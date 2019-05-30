@@ -1,23 +1,24 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
-import { AppTopbar } from './AppTopbar';
-import { AppFooter } from './AppFooter';
-import { AppMenu } from './AppMenu';
-import { AppInlineProfile } from './AppInlineProfile';
+import AppTopbar from './AppTopbar';
+import AppFooter from './AppFooter';
+import AppMenu from './AppMenu';
+import AppInlineProfile from './AppInlineProfile';
 import { Route } from 'react-router-dom';
-import { Dashboard } from './components/Dashboard';
-import { FormsDemo } from './components/FormsDemo';
-import { SampleDemo } from './components/SampleDemo';
-import { DataDemo } from './components/DataDemo';
-import { PanelsDemo } from './components/PanelsDemo';
-import { OverlaysDemo } from './components/OverlaysDemo';
-import { MenusDemo } from './components/MenusDemo';
-import { MessagesDemo } from './components/MessagesDemo';
-import { ChartsDemo } from './components/ChartsDemo';
-import { MiscDemo } from './components/MiscDemo';
-import { EmptyPage } from './components/EmptyPage';
-import { Documentation } from './components/Documentation';
+import { Dashboard } from './components/showcase/Dashboard';
+import { FormsDemo } from './components/showcase/FormsDemo';
+import { SampleDemo } from './components/showcase/SampleDemo';
+import { DataDemo } from './components/showcase/DataDemo';
+import { PanelsDemo } from './components/showcase/PanelsDemo';
+import { OverlaysDemo } from './components/showcase/OverlaysDemo';
+import { MenusDemo } from './components/showcase/MenusDemo';
+import { MessagesDemo } from './components/showcase/MessagesDemo';
+import { ChartsDemo } from './components/showcase/ChartsDemo';
+import { MiscDemo } from './components/showcase/MiscDemo';
+import { EmptyPage } from './components/showcase/EmptyPage';
+import { Documentation } from './components/showcase/Documentation';
 import { ScrollPanel } from 'primereact/components/scrollpanel/ScrollPanel';
+
 import 'primereact/resources/themes/nova-light/theme.css';
 import 'primereact/resources/primereact.min.css';
 import 'primeicons/primeicons.css';
@@ -26,7 +27,15 @@ import 'fullcalendar/dist/fullcalendar.css';
 import './layout/layout.css';
 import './App.css';
 
-class App extends Component {
+type State = {
+  layoutMode: string,
+  layoutColorMode: string,
+  staticMenuInactive: boolean,
+  overlayMenuActive: boolean,
+  mobileMenuActive: boolean,
+};
+
+class App extends Component<*, State> {
   constructor() {
     super();
     this.state = {
@@ -34,7 +43,7 @@ class App extends Component {
       layoutColorMode: 'dark',
       staticMenuInactive: false,
       overlayMenuActive: false,
-      mobileMenuActive: false
+      mobileMenuActive: false,
     };
 
     this.onWrapperClick = this.onWrapperClick.bind(this);
@@ -44,52 +53,61 @@ class App extends Component {
     this.createMenu();
   }
 
-  onWrapperClick(event) {
+  onWrapperClick: () => void;
+  onToggleMenu: () => void;
+  onSidebarClick: () => void;
+  onMenuItemClick: () => void;
+  menuClick: any;
+  layoutMenuScroller: any;
+  menu: any;
+  sidebar: any;
+
+  onWrapperClick() {
     if (!this.menuClick) {
       this.setState({
         overlayMenuActive: false,
-        mobileMenuActive: false
+        mobileMenuActive: false,
       });
     }
 
     this.menuClick = false;
   }
 
-  onToggleMenu(event) {
+  onToggleMenu(event: Object) {
     this.menuClick = true;
 
     if (this.isDesktop()) {
       if (this.state.layoutMode === 'overlay') {
         this.setState({
-          overlayMenuActive: !this.state.overlayMenuActive
+          overlayMenuActive: !this.state.overlayMenuActive,
         });
       } else if (this.state.layoutMode === 'static') {
         this.setState({
-          staticMenuInactive: !this.state.staticMenuInactive
+          staticMenuInactive: !this.state.staticMenuInactive,
         });
       }
     } else {
       const mobileMenuActive = this.state.mobileMenuActive;
       this.setState({
-        mobileMenuActive: !mobileMenuActive
+        mobileMenuActive: !mobileMenuActive,
       });
     }
 
     event.preventDefault();
   }
 
-  onSidebarClick(event) {
+  onSidebarClick() {
     this.menuClick = true;
     setTimeout(() => {
       this.layoutMenuScroller.moveBar();
     }, 500);
   }
 
-  onMenuItemClick(event) {
+  onMenuItemClick(event: Object) {
     if (!event.item.items) {
       this.setState({
         overlayMenuActive: false,
-        mobileMenuActive: false
+        mobileMenuActive: false,
       });
     }
   }
@@ -101,7 +119,7 @@ class App extends Component {
         icon: 'pi pi-fw pi-home',
         command: () => {
           window.location = '#/';
-        }
+        },
       },
       {
         label: 'Menu Modes',
@@ -110,14 +128,14 @@ class App extends Component {
           {
             label: 'Static Menu',
             icon: 'pi pi-fw pi-bars',
-            command: () => this.setState({ layoutMode: 'static' })
+            command: () => this.setState({ layoutMode: 'static' }),
           },
           {
             label: 'Overlay Menu',
             icon: 'pi pi-fw pi-bars',
-            command: () => this.setState({ layoutMode: 'overlay' })
-          }
-        ]
+            command: () => this.setState({ layoutMode: 'overlay' }),
+          },
+        ],
       },
       {
         label: 'Menu Colors',
@@ -126,14 +144,14 @@ class App extends Component {
           {
             label: 'Dark',
             icon: 'pi pi-fw pi-bars',
-            command: () => this.setState({ layoutColorMode: 'dark' })
+            command: () => this.setState({ layoutColorMode: 'dark' }),
           },
           {
             label: 'Light',
             icon: 'pi pi-fw pi-bars',
-            command: () => this.setState({ layoutColorMode: 'light' })
-          }
-        ]
+            command: () => this.setState({ layoutColorMode: 'light' }),
+          },
+        ],
       },
       {
         label: 'Components',
@@ -148,15 +166,15 @@ class App extends Component {
           { label: 'Menus', icon: 'pi pi-fw pi-plus', to: '/menus' },
           { label: 'Messages', icon: 'pi pi-fw pi-spinner', to: '/messages' },
           { label: 'Charts', icon: 'pi pi-fw pi-chart-bar', to: '/charts' },
-          { label: 'Misc', icon: 'pi pi-fw pi-upload', to: '/misc' }
-        ]
+          { label: 'Misc', icon: 'pi pi-fw pi-upload', to: '/misc' },
+        ],
       },
       {
         label: 'Template Pages',
         icon: 'pi pi-fw pi-file',
         items: [
-          { label: 'Empty Page', icon: 'pi pi-fw pi-circle-off', to: '/empty' }
-        ]
+          { label: 'Empty Page', icon: 'pi pi-fw pi-circle-off', to: '/empty' },
+        ],
       },
       {
         label: 'Menu Hierarchy',
@@ -172,18 +190,18 @@ class App extends Component {
                 items: [
                   { label: 'Submenu 1.1.1', icon: 'pi pi-fw pi-bookmark' },
                   { label: 'Submenu 1.1.2', icon: 'pi pi-fw pi-bookmark' },
-                  { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark' }
-                ]
+                  { label: 'Submenu 1.1.3', icon: 'pi pi-fw pi-bookmark' },
+                ],
               },
               {
                 label: 'Submenu 1.2',
                 icon: 'pi pi-fw pi-bookmark',
                 items: [
                   { label: 'Submenu 1.2.1', icon: 'pi pi-fw pi-bookmark' },
-                  { label: 'Submenu 1.2.2', icon: 'pi pi-fw pi-bookmark' }
-                ]
-              }
-            ]
+                  { label: 'Submenu 1.2.2', icon: 'pi pi-fw pi-bookmark' },
+                ],
+              },
+            ],
           },
           {
             label: 'Submenu 2',
@@ -195,52 +213,52 @@ class App extends Component {
                 items: [
                   { label: 'Submenu 2.1.1', icon: 'pi pi-fw pi-bookmark' },
                   { label: 'Submenu 2.1.2', icon: 'pi pi-fw pi-bookmark' },
-                  { label: 'Submenu 2.1.3', icon: 'pi pi-fw pi-bookmark' }
-                ]
+                  { label: 'Submenu 2.1.3', icon: 'pi pi-fw pi-bookmark' },
+                ],
               },
               {
                 label: 'Submenu 2.2',
                 icon: 'pi pi-fw pi-bookmark',
                 items: [
                   { label: 'Submenu 2.2.1', icon: 'pi pi-fw pi-bookmark' },
-                  { label: 'Submenu 2.2.2', icon: 'pi pi-fw pi-bookmark' }
-                ]
-              }
-            ]
-          }
-        ]
+                  { label: 'Submenu 2.2.2', icon: 'pi pi-fw pi-bookmark' },
+                ],
+              },
+            ],
+          },
+        ],
       },
       {
         label: 'Documentation',
         icon: 'pi pi-fw pi-question',
         command: () => {
           window.location = '#/documentation';
-        }
+        },
       },
       {
         label: 'View Source',
         icon: 'pi pi-fw pi-search',
         command: () => {
           window.location = 'https://github.com/primefaces/sigma';
-        }
-      }
+        },
+      },
     ];
   }
 
-  addClass(element, className) {
+  addClass(element: Element, className: any) {
     if (element.classList) element.classList.add(className);
     else element.className += ' ' + className;
   }
 
-  removeClass(element, className) {
+  removeClass(element: Element, className: any) {
     if (element.classList) element.classList.remove(className);
     else
       element.className = element.className.replace(
         new RegExp(
           '(^|\\b)' + className.split(' ').join('|') + '(\\b|$)',
-          'gi'
+          'gi',
         ),
-        ' '
+        ' ',
       );
   }
 
@@ -249,9 +267,13 @@ class App extends Component {
   }
 
   componentDidUpdate() {
-    if (this.state.mobileMenuActive)
-      this.addClass(document.body, 'body-overflow-hidden');
-    else this.removeClass(document.body, 'body-overflow-hidden');
+    const docBody = document.body;
+
+    if (this.state.mobileMenuActive) {
+      if (docBody !== null) this.addClass(docBody, 'body-overflow-hidden');
+    } else {
+      if (docBody !== null) this.removeClass(docBody, 'body-overflow-hidden');
+    }
   }
 
   render() {
@@ -267,10 +289,10 @@ class App extends Component {
         this.state.staticMenuInactive && this.state.layoutMode === 'static',
       'layout-overlay-sidebar-active':
         this.state.overlayMenuActive && this.state.layoutMode === 'overlay',
-      'layout-mobile-sidebar-active': this.state.mobileMenuActive
+      'layout-mobile-sidebar-active': this.state.mobileMenuActive,
     });
     let sidebarClassName = classNames('layout-sidebar', {
-      'layout-sidebar-dark': this.state.layoutColorMode === 'dark'
+      'layout-sidebar-dark': this.state.layoutColorMode === 'dark',
     });
 
     return (
@@ -278,9 +300,13 @@ class App extends Component {
         <AppTopbar onToggleMenu={this.onToggleMenu} />
 
         <div
-          ref={el => (this.sidebar = el)}
+          ref={el => {
+            this.sidebar = el;
+            return this.sidebar;
+          }}
           className={sidebarClassName}
           onClick={this.onSidebarClick}
+          onKeyDown={this.onSidebarClick}
         >
           <ScrollPanel
             ref={el => (this.layoutMenuScroller = el)}

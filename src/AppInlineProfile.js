@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import classNames from 'classnames';
 
-export class AppInlineProfile extends Component {
+type State = {
+  expanded: boolean,
+};
+
+export default class AppInlineProfile extends Component<*, State> {
   constructor() {
     super();
     this.state = {
-      expanded: false
+      expanded: false,
     };
     this.onClick = this.onClick.bind(this);
   }
+  onClick: () => void;
 
-  onClick(event) {
+  onClick(event: Object) {
     this.setState({ expanded: !this.state.expanded });
     event.preventDefault();
   }

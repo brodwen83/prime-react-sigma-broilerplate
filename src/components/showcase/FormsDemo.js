@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CountryService } from '../service/CountryService';
+import { CountryService } from '../../service/CountryService';
 import { InputText } from 'primereact/inputtext';
 import { InputTextarea } from 'primereact/inputtextarea';
 import { AutoComplete } from 'primereact/autocomplete';
@@ -56,7 +56,7 @@ export class FormsDemo extends Component {
         { label: 'Mercedes', value: 'Mercedes' },
         { label: 'Renault', value: 'Renault' },
         { label: 'VW', value: 'VW' },
-        { label: 'Volvo', value: 'Volvo' }
+        { label: 'Volvo', value: 'Volvo' },
       ],
       cities: [
         { label: 'Select City', value: null },
@@ -64,19 +64,19 @@ export class FormsDemo extends Component {
         { label: 'Rome', value: 'Rome' },
         { label: 'London', value: 'London' },
         { label: 'Istanbul', value: 'Istanbul' },
-        { label: 'Paris', value: 'Paris' }
+        { label: 'Paris', value: 'Paris' },
       ],
       listBoxCities: [
         { label: 'Madrid', value: 'Madrid' },
         { label: 'Geneva', value: 'Geneva' },
         { label: 'Los Angeles', value: 'Los Angeles' },
         { label: 'Monaco', value: 'Monaco' },
-        { label: 'Berlin', value: 'Berlin' }
+        { label: 'Berlin', value: 'Berlin' },
       ],
       types: [
         { label: 'Apartment', value: 'Apartment' },
         { label: 'House', value: 'House' },
-        { label: 'Studio', value: 'Studio' }
+        { label: 'Studio', value: 'Studio' },
       ],
       splitButtonItems: [
         { label: 'Update', icon: 'pi pi-refresh' },
@@ -84,9 +84,9 @@ export class FormsDemo extends Component {
         {
           label: 'Home',
           icon: 'pi pi-home',
-          url: 'http://www.primefaces.org/primereact'
-        }
-      ]
+          url: 'http://www.primefaces.org/primereact',
+        },
+      ],
     };
 
     this.countryService = new CountryService();
@@ -107,7 +107,7 @@ export class FormsDemo extends Component {
       'Jaguar',
       'Mercedes',
       'Renault',
-      'Volvo'
+      'Volvo',
     ];
   }
 
@@ -147,7 +147,7 @@ export class FormsDemo extends Component {
           style={{
             width: '32px',
             display: 'inline-block',
-            margin: '5px 0 2px 5px'
+            margin: '5px 0 2px 5px',
           }}
         />
         <div
@@ -224,7 +224,7 @@ export class FormsDemo extends Component {
                   onChange={event =>
                     this.setState({
                       country: event.value,
-                      filteredCountries: null
+                      filteredCountries: null,
                     })
                   }
                 />

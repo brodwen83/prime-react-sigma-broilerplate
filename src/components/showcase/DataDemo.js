@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { CarService } from '../service/CarService';
-import { NodeService } from '../service/NodeService';
-import { EventService } from '../service/EventService';
+import { CarService } from '../../service/CarService';
+import { NodeService } from '../../service/NodeService';
+import { EventService } from '../../service/EventService';
 import { OrganizationChart } from 'primereact/organizationchart';
 import { DataTable } from 'primereact/datatable';
 import { Tree } from 'primereact/tree';
@@ -36,7 +36,7 @@ export class DataDemo extends Component {
       sortOptions: [
         { label: 'Newest First', value: '!year' },
         { label: 'Oldest First', value: 'year' },
-        { label: 'Brand', value: 'brand' }
+        { label: 'Brand', value: 'brand' },
       ],
       organizationChartValue: [
         {
@@ -48,28 +48,28 @@ export class DataDemo extends Component {
               expanded: true,
               children: [
                 {
-                  label: 'Chelsea FC'
+                  label: 'Chelsea FC',
                 },
                 {
-                  label: 'F.C. Barcelona'
-                }
-              ]
+                  label: 'F.C. Barcelona',
+                },
+              ],
             },
             {
               label: 'Real Madrid',
               expanded: true,
               children: [
                 {
-                  label: 'Bayern Munich'
+                  label: 'Bayern Munich',
                 },
                 {
-                  label: 'Real Madrid'
-                }
-              ]
-            }
-          ]
-        }
-      ]
+                  label: 'Real Madrid',
+                },
+              ],
+            },
+          ],
+        },
+      ],
     };
 
     this.carService = new CarService();
@@ -122,7 +122,7 @@ export class DataDemo extends Component {
           style={{
             display: 'inline-block',
             margin: '2px 0 2px 2px',
-            width: '50px'
+            width: '50px',
           }}
         />
         <div
@@ -147,7 +147,7 @@ export class DataDemo extends Component {
           style={{
             display: 'inline-block',
             margin: '2px 0 2px 2px',
-            width: '50px'
+            width: '50px',
           }}
         />
         <div style={{ fontSize: 14, float: 'right', margin: '15px 5px 0 0' }}>
@@ -224,7 +224,7 @@ export class DataDemo extends Component {
       this.setState({
         sortOrder: -1,
         sortField: value.substring(1, value.length),
-        sortKey: value
+        sortKey: value,
       });
     else this.setState({ sortOrder: 1, sortField: value, sortKey: value });
   }
@@ -235,9 +235,9 @@ export class DataDemo extends Component {
       header: {
         left: 'prev,next today',
         center: 'title',
-        right: 'month,agendaWeek,agendaDay'
+        right: 'month,agendaWeek,agendaDay',
       },
-      editable: true
+      editable: true,
     };
 
     const header = (
@@ -325,7 +325,7 @@ export class DataDemo extends Component {
               onChange={event =>
                 this.setState({
                   picklistSourceCars: event.source,
-                  picklistTargetCars: event.target
+                  picklistTargetCars: event.target,
                 })
               }
             />

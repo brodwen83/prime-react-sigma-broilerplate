@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 export class NodeService {
-  getFiles(_this) {
+  getFiles(_this: any) {
     return axios
       .get('assets/demo/data/files.json')
       .then(res => res.data.data)
@@ -11,7 +11,7 @@ export class NodeService {
       });
   }
 
-  getFilesystem(_this) {
+  getFilesystem(_this: any) {
     return axios
       .get('assets/demo/data/filesystem.json')
       .then(res => res.data.data)

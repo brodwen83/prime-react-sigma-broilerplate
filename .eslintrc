@@ -1,3 +1,37 @@
 {
-  "extends": "react-app"
+  "extends": "react-app",
+  "env": {
+    "jest": true,
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-unused-vars": [
+      "error",
+      { "vars": "all", "args": "after-used", "ignoreRestSiblings": false }
+    ],
+    "react/jsx-filename-extension": "off",
+    "import/prefer-default-export": 1,
+    "react/destructuring-assignment": "off",
+    "jsx-a11y/click-events-have-key-events": "off",
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": ["regenerator-runtime/**"]
+      }
+    ],
+    "space-before-function-paren": [
+      "error",
+      {
+        "anonymous": "always",
+        "named": "always",
+        "asyncArrow": "always"
+      }
+    ]
+  },
+  "globals": {
+    "Generator": true,
+    "document": true,
+    "window": true
+  }
 }

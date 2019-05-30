@@ -7,7 +7,7 @@ export class MiscDemo extends Component {
   constructor() {
     super();
     this.state = {
-      value: 0
+      value: 0,
     };
 
     this.onUpload = this.onUpload.bind(this);
@@ -17,7 +17,7 @@ export class MiscDemo extends Component {
     this.growl.show({
       severity: 'info',
       summary: 'Success',
-      detail: 'File Uploaded'
+      detail: 'File Uploaded',
     });
   }
 

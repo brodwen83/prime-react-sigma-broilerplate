@@ -2,13 +2,17 @@ import React, { Component } from 'react';
 import { InputText } from 'primereact/inputtext';
 import PropTypes from 'prop-types';
 
-export class AppTopbar extends Component {
+type Props = {
+  onToggleMenu: Function,
+};
+
+export default class AppTopbar extends Component<Props> {
   static defaultProps = {
-    onToggleMenu: null
+    onToggleMenu: null,
   };
 
   static propTypes = {
-    onToggleMenu: PropTypes.func.isRequired
+    onToggleMenu: PropTypes.func.isRequired,
   };
 
   render() {

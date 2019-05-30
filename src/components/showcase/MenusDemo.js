@@ -25,26 +25,26 @@ export class MenusDemo extends Component {
         { label: 'Squad' },
         {
           label: 'Lionel Messi',
-          url: 'https://en.wikipedia.org/wiki/Lionel_Messi'
-        }
+          url: 'https://en.wikipedia.org/wiki/Lionel_Messi',
+        },
       ],
       home: {
         icon: 'pi pi-home',
-        url: 'https://www.primefaces.org/primereact'
+        url: 'https://www.primefaces.org/primereact',
       },
       stepsItems: [
         {
-          label: 'Personal'
+          label: 'Personal',
         },
         {
-          label: 'Seat'
+          label: 'Seat',
         },
         {
-          label: 'Payment'
+          label: 'Payment',
         },
         {
-          label: 'Confirmation'
-        }
+          label: 'Confirmation',
+        },
       ],
       tieredItems: [
         {
@@ -57,26 +57,26 @@ export class MenusDemo extends Component {
               items: [
                 {
                   label: 'Bookmark',
-                  icon: 'pi pi-fw pi-bookmark'
+                  icon: 'pi pi-fw pi-bookmark',
                 },
                 {
                   label: 'Video',
-                  icon: 'pi pi-fw pi-video'
-                }
-              ]
+                  icon: 'pi pi-fw pi-video',
+                },
+              ],
             },
             {
               label: 'Delete',
-              icon: 'pi pi-fw pi-trash'
+              icon: 'pi pi-fw pi-trash',
             },
             {
-              separator: true
+              separator: true,
             },
             {
               label: 'Export',
-              icon: 'pi pi-fw pi-external-link'
-            }
-          ]
+              icon: 'pi pi-fw pi-external-link',
+            },
+          ],
         },
         {
           label: 'Edit',
@@ -84,21 +84,21 @@ export class MenusDemo extends Component {
           items: [
             {
               label: 'Left',
-              icon: 'pi pi-fw pi-align-left'
+              icon: 'pi pi-fw pi-align-left',
             },
             {
               label: 'Right',
-              icon: 'pi pi-fw pi-align-right'
+              icon: 'pi pi-fw pi-align-right',
             },
             {
               label: 'Center',
-              icon: 'pi pi-fw pi-align-center'
+              icon: 'pi pi-fw pi-align-center',
             },
             {
               label: 'Justify',
-              icon: 'pi pi-fw pi-align-justify'
-            }
-          ]
+              icon: 'pi pi-fw pi-align-justify',
+            },
+          ],
         },
         {
           label: 'Users',
@@ -106,11 +106,11 @@ export class MenusDemo extends Component {
           items: [
             {
               label: 'New',
-              icon: 'pi pi-fw pi-user-plus'
+              icon: 'pi pi-fw pi-user-plus',
             },
             {
               label: 'Delete',
-              icon: 'pi pi-fw pi-user-minus'
+              icon: 'pi pi-fw pi-user-minus',
             },
             {
               label: 'Search',
@@ -122,17 +122,17 @@ export class MenusDemo extends Component {
                   items: [
                     {
                       label: 'Print',
-                      icon: 'pi pi-fw pi-print'
-                    }
-                  ]
+                      icon: 'pi pi-fw pi-print',
+                    },
+                  ],
                 },
                 {
                   icon: 'pi pi-fw pi-bars',
-                  label: 'List'
-                }
-              ]
-            }
-          ]
+                  label: 'List',
+                },
+              ],
+            },
+          ],
         },
         {
           label: 'Events',
@@ -144,13 +144,13 @@ export class MenusDemo extends Component {
               items: [
                 {
                   label: 'Save',
-                  icon: 'pi pi-fw pi-calendar-plus'
+                  icon: 'pi pi-fw pi-calendar-plus',
                 },
                 {
                   label: 'Delete',
-                  icon: 'pi pi-fw pi-calendar-minus'
-                }
-              ]
+                  icon: 'pi pi-fw pi-calendar-minus',
+                },
+              ],
             },
             {
               label: 'Archieve',
@@ -158,16 +158,16 @@ export class MenusDemo extends Component {
               items: [
                 {
                   label: 'Remove',
-                  icon: 'pi pi-fw pi-calendar-minus'
-                }
-              ]
-            }
-          ]
+                  icon: 'pi pi-fw pi-calendar-minus',
+                },
+              ],
+            },
+          ],
         },
         {
           label: 'Quit',
-          icon: 'pi pi-fw pi-power-off'
-        }
+          icon: 'pi pi-fw pi-power-off',
+        },
       ],
       items: [
         {
@@ -176,14 +176,14 @@ export class MenusDemo extends Component {
             {
               label: 'New',
               icon: 'pi pi-fw pi-plus',
-              command: () => (window.location.hash = '/fileupload')
+              command: () => (window.location.hash = '/fileupload'),
             },
             {
               label: 'Delete',
               icon: 'pi pi-fw pi-trash',
-              url: 'http://primetek.com.tr'
-            }
-          ]
+              url: 'http://primetek.com.tr',
+            },
+          ],
         },
         {
           label: 'Account',
@@ -191,11 +191,11 @@ export class MenusDemo extends Component {
             {
               label: 'Options',
               icon: 'pi pi-fw pi-cog',
-              command: () => (window.location.hash = '/')
+              command: () => (window.location.hash = '/'),
             },
-            { label: 'Sign Out', icon: 'pi pi-fw pi-power-off' }
-          ]
-        }
+            { label: 'Sign Out', icon: 'pi pi-fw pi-power-off' },
+          ],
+        },
       ],
       panelMenuItems: [
         {
@@ -208,26 +208,26 @@ export class MenusDemo extends Component {
               items: [
                 {
                   label: 'Bookmark',
-                  icon: 'pi pi-fw pi-bookmark'
+                  icon: 'pi pi-fw pi-bookmark',
                 },
                 {
                   label: 'Video',
-                  icon: 'pi pi-fw pi-video'
-                }
-              ]
+                  icon: 'pi pi-fw pi-video',
+                },
+              ],
             },
             {
               label: 'Delete',
-              icon: 'pi pi-fw pi-trash'
+              icon: 'pi pi-fw pi-trash',
             },
             {
-              separator: true
+              separator: true,
             },
             {
               label: 'Export',
-              icon: 'pi pi-fw pi-external-link'
-            }
-          ]
+              icon: 'pi pi-fw pi-external-link',
+            },
+          ],
         },
         {
           label: 'Manage',
@@ -235,21 +235,21 @@ export class MenusDemo extends Component {
           items: [
             {
               label: 'Left',
-              icon: 'pi pi-fw pi-align-left'
+              icon: 'pi pi-fw pi-align-left',
             },
             {
               label: 'Right',
-              icon: 'pi pi-fw pi-align-right'
+              icon: 'pi pi-fw pi-align-right',
             },
             {
               label: 'Center',
-              icon: 'pi pi-fw pi-align-center'
+              icon: 'pi pi-fw pi-align-center',
             },
             {
               label: 'Justify',
-              icon: 'pi pi-fw pi-align-justify'
-            }
-          ]
+              icon: 'pi pi-fw pi-align-justify',
+            },
+          ],
         },
         {
           label: 'Accounts',
@@ -257,11 +257,11 @@ export class MenusDemo extends Component {
           items: [
             {
               label: 'New',
-              icon: 'pi pi-fw pi-user-plus'
+              icon: 'pi pi-fw pi-user-plus',
             },
             {
               label: 'Delete',
-              icon: 'pi pi-fw pi-user-minus'
+              icon: 'pi pi-fw pi-user-minus',
             },
             {
               label: 'Search',
@@ -273,17 +273,17 @@ export class MenusDemo extends Component {
                   items: [
                     {
                       label: 'Print',
-                      icon: 'pi pi-fw pi-print'
-                    }
-                  ]
+                      icon: 'pi pi-fw pi-print',
+                    },
+                  ],
                 },
                 {
                   icon: 'pi pi-fw pi-bars',
-                  label: 'List'
-                }
-              ]
-            }
-          ]
+                  label: 'List',
+                },
+              ],
+            },
+          ],
         },
         {
           label: 'Calendar',
@@ -295,13 +295,13 @@ export class MenusDemo extends Component {
               items: [
                 {
                   label: 'Save',
-                  icon: 'pi pi-fw pi-calendar-plus'
+                  icon: 'pi pi-fw pi-calendar-plus',
                 },
                 {
                   label: 'Delete',
-                  icon: 'pi pi-fw pi-calendar-minus'
-                }
-              ]
+                  icon: 'pi pi-fw pi-calendar-minus',
+                },
+              ],
             },
             {
               label: 'Archieve',
@@ -309,19 +309,19 @@ export class MenusDemo extends Component {
               items: [
                 {
                   label: 'Remove',
-                  icon: 'pi pi-fw pi-calendar-minus'
-                }
-              ]
-            }
-          ]
-        }
+                  icon: 'pi pi-fw pi-calendar-minus',
+                },
+              ],
+            },
+          ],
+        },
       ],
       tabMenuItems: [
         { label: 'Home', icon: 'pi pi-fw pi-home' },
         { label: 'Calendar', icon: 'pi pi-fw pi-calendar' },
         { label: 'Edit', icon: 'pi pi-fw pi-pencil' },
         { label: 'Documentation', icon: 'pi pi-fw pi-file' },
-        { label: 'Settings', icon: 'pi pi-fw pi-cog' }
+        { label: 'Settings', icon: 'pi pi-fw pi-cog' },
       ],
       megaMenuItems: [
         {
@@ -331,24 +331,24 @@ export class MenusDemo extends Component {
             [
               {
                 label: 'Video 1',
-                items: [{ label: 'Video 1.1' }, { label: 'Video 1.2' }]
+                items: [{ label: 'Video 1.1' }, { label: 'Video 1.2' }],
               },
               {
                 label: 'Video 2',
-                items: [{ label: 'Video 2.1' }, { label: 'Video 2.2' }]
-              }
+                items: [{ label: 'Video 2.1' }, { label: 'Video 2.2' }],
+              },
             ],
             [
               {
                 label: 'Video 3',
-                items: [{ label: 'Video 3.1' }, { label: 'Video 3.2' }]
+                items: [{ label: 'Video 3.1' }, { label: 'Video 3.2' }],
               },
               {
                 label: 'Video 4',
-                items: [{ label: 'Video 4.1' }, { label: 'Video 4.2' }]
-              }
-            ]
-          ]
+                items: [{ label: 'Video 4.1' }, { label: 'Video 4.2' }],
+              },
+            ],
+          ],
         },
         {
           label: 'Users',
@@ -357,34 +357,34 @@ export class MenusDemo extends Component {
             [
               {
                 label: 'User 1',
-                items: [{ label: 'User 1.1' }, { label: 'User 1.2' }]
+                items: [{ label: 'User 1.1' }, { label: 'User 1.2' }],
               },
               {
                 label: 'User 2',
-                items: [{ label: 'User 2.1' }, { label: 'User 2.2' }]
-              }
+                items: [{ label: 'User 2.1' }, { label: 'User 2.2' }],
+              },
             ],
             [
               {
                 label: 'User 3',
-                items: [{ label: 'User 3.1' }, { label: 'User 3.2' }]
+                items: [{ label: 'User 3.1' }, { label: 'User 3.2' }],
               },
               {
                 label: 'User 4',
-                items: [{ label: 'User 4.1' }, { label: 'User 4.2' }]
-              }
+                items: [{ label: 'User 4.1' }, { label: 'User 4.2' }],
+              },
             ],
             [
               {
                 label: 'User 5',
-                items: [{ label: 'User 5.1' }, { label: 'User 5.2' }]
+                items: [{ label: 'User 5.1' }, { label: 'User 5.2' }],
               },
               {
                 label: 'User 6',
-                items: [{ label: 'User 6.1' }, { label: 'User 6.2' }]
-              }
-            ]
-          ]
+                items: [{ label: 'User 6.1' }, { label: 'User 6.2' }],
+              },
+            ],
+          ],
         },
         {
           label: 'Events',
@@ -393,24 +393,24 @@ export class MenusDemo extends Component {
             [
               {
                 label: 'Event 1',
-                items: [{ label: 'Event 1.1' }, { label: 'Event 1.2' }]
+                items: [{ label: 'Event 1.1' }, { label: 'Event 1.2' }],
               },
               {
                 label: 'Event 2',
-                items: [{ label: 'Event 2.1' }, { label: 'Event 2.2' }]
-              }
+                items: [{ label: 'Event 2.1' }, { label: 'Event 2.2' }],
+              },
             ],
             [
               {
                 label: 'Event 3',
-                items: [{ label: 'Event 3.1' }, { label: 'Event 3.2' }]
+                items: [{ label: 'Event 3.1' }, { label: 'Event 3.2' }],
               },
               {
                 label: 'Event 4',
-                items: [{ label: 'Event 4.1' }, { label: 'Event 4.2' }]
-              }
-            ]
-          ]
+                items: [{ label: 'Event 4.1' }, { label: 'Event 4.2' }],
+              },
+            ],
+          ],
         },
         {
           label: 'Settings',
@@ -419,26 +419,26 @@ export class MenusDemo extends Component {
             [
               {
                 label: 'Setting 1',
-                items: [{ label: 'Setting 1.1' }, { label: 'Setting 1.2' }]
+                items: [{ label: 'Setting 1.1' }, { label: 'Setting 1.2' }],
               },
               {
                 label: 'Setting 2',
-                items: [{ label: 'Setting 2.1' }, { label: 'Setting 2.2' }]
+                items: [{ label: 'Setting 2.1' }, { label: 'Setting 2.2' }],
               },
               {
                 label: 'Setting 3',
-                items: [{ label: 'Setting 3.1' }, { label: 'Setting 3.2' }]
-              }
+                items: [{ label: 'Setting 3.1' }, { label: 'Setting 3.2' }],
+              },
             ],
             [
               {
                 label: 'Technology 4',
-                items: [{ label: 'Setting 4.1' }, { label: 'Setting 4.2' }]
-              }
-            ]
-          ]
-        }
-      ]
+                items: [{ label: 'Setting 4.1' }, { label: 'Setting 4.2' }],
+              },
+            ],
+          ],
+        },
+      ],
     };
   }
 

@@ -19,7 +19,7 @@ export class MessagesDemo extends Component {
     let msg = {
       severity: 'success',
       summary: 'Success Message',
-      detail: 'Order submitted'
+      detail: 'Order submitted',
     };
     this.growl.show(msg);
     this.messages.show(msg);
@@ -29,7 +29,7 @@ export class MessagesDemo extends Component {
     let msg = {
       severity: 'info',
       summary: 'Info Message',
-      detail: 'PrimeReact rocks'
+      detail: 'PrimeReact rocks',
     };
     this.growl.show(msg);
     this.messages.show(msg);
@@ -39,7 +39,7 @@ export class MessagesDemo extends Component {
     let msg = {
       severity: 'warn',
       summary: 'Warn Message',
-      detail: 'There are unsaved changes'
+      detail: 'There are unsaved changes',
     };
     this.growl.show(msg);
     this.messages.show(msg);
@@ -49,7 +49,7 @@ export class MessagesDemo extends Component {
     let msg = {
       severity: 'error',
       summary: 'Error Message',
-      detail: 'Validation failed'
+      detail: 'Validation failed',
     };
     this.growl.show(msg);
     this.messages.show(msg);

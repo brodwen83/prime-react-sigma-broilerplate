@@ -13,22 +13,22 @@ export class ChartsDemo extends Component {
           'April',
           'May',
           'June',
-          'July'
+          'July',
         ],
         datasets: [
           {
             label: 'First Dataset',
             data: [65, 59, 80, 81, 56, 55, 40],
             fill: false,
-            borderColor: '#03A9F4'
+            borderColor: '#03A9F4',
           },
           {
             label: 'Second Dataset',
             data: [28, 48, 40, 19, 86, 27, 90],
             fill: false,
-            borderColor: '#FFC107'
-          }
-        ]
+            borderColor: '#FFC107',
+          },
+        ],
       },
       barData: {
         labels: [
@@ -38,22 +38,22 @@ export class ChartsDemo extends Component {
           'April',
           'May',
           'June',
-          'July'
+          'July',
         ],
         datasets: [
           {
             label: 'My First dataset',
             backgroundColor: '#03A9F4',
             borderColor: '#03A9F4',
-            data: [65, 59, 80, 81, 56, 55, 40]
+            data: [65, 59, 80, 81, 56, 55, 40],
           },
           {
             label: 'My Second dataset',
             backgroundColor: '#FFC107',
             borderColor: '#FFC107',
-            data: [28, 48, 40, 19, 86, 27, 90]
-          }
-        ]
+            data: [28, 48, 40, 19, 86, 27, 90],
+          },
+        ],
       },
       pieData: {
         labels: ['A', 'B', 'C'],
@@ -61,9 +61,9 @@ export class ChartsDemo extends Component {
           {
             data: [300, 50, 100],
             backgroundColor: ['#FFC107', '#03A9F4', '#4CAF50'],
-            hoverBackgroundColor: ['#FFE082', '#81D4FA', '#A5D6A7']
-          }
-        ]
+            hoverBackgroundColor: ['#FFE082', '#81D4FA', '#A5D6A7'],
+          },
+        ],
       },
       polarData: {
         datasets: [
@@ -74,12 +74,12 @@ export class ChartsDemo extends Component {
               '#03A9F4',
               '#4CAF50',
               '#E91E63',
-              '#9C27B0'
+              '#9C27B0',
             ],
-            label: 'My dataset'
-          }
+            label: 'My dataset',
+          },
         ],
-        labels: ['Yellow', 'Blue', 'Green', 'Pink', 'Purple']
+        labels: ['Yellow', 'Blue', 'Green', 'Pink', 'Purple'],
       },
       radarData: {
         labels: [
@@ -89,7 +89,7 @@ export class ChartsDemo extends Component {
           'Designing',
           'Coding',
           'Cycling',
-          'Running'
+          'Running',
         ],
         datasets: [
           {
@@ -100,7 +100,7 @@ export class ChartsDemo extends Component {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(179,181,198,1)',
-            data: [65, 59, 90, 81, 56, 55, 40]
+            data: [65, 59, 90, 81, 56, 55, 40],
           },
           {
             label: 'My Second dataset',
@@ -110,10 +110,10 @@ export class ChartsDemo extends Component {
             pointBorderColor: '#fff',
             pointHoverBackgroundColor: '#fff',
             pointHoverBorderColor: 'rgba(255,99,132,1)',
-            data: [28, 48, 40, 19, 96, 27, 100]
-          }
-        ]
-      }
+            data: [28, 48, 40, 19, 96, 27, 100],
+          },
+        ],
+      },
     };
   }
 

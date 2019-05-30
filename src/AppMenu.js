@@ -3,19 +3,30 @@ import { NavLink } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
 
-class AppSubmenu extends Component {
+type Props = {
+  className?: string,
+  items?: Array<any>,
+  onMenuItemClick?: Function,
+  root?: boolean,
+};
+
+type State = {
+  activeIndex: any,
+};
+
+class AppSubmenu extends Component<Props, State> {
   static defaultProps = {
-    className: null,
-    items: null,
+    className: '',
+    items: [],
     onMenuItemClick: null,
-    root: false
+    root: false,
   };
 
   static propTypes = {
     className: PropTypes.string,
     items: PropTypes.array,
     onMenuItemClick: PropTypes.func,
-    root: PropTypes.bool
+    root: PropTypes.bool,
   };
 
   constructor(props) {
@@ -41,7 +52,7 @@ class AppSubmenu extends Component {
     if (this.props.onMenuItemClick) {
       this.props.onMenuItemClick({
         originalEvent: event,
-        item: item
+        item: item,
       });
     }
   }
@@ -98,7 +109,7 @@ class AppSubmenu extends Component {
       this.props.items.map((item, i) => {
         let active = this.state.activeIndex === i;
         let styleClass = classNames(item.badgeStyleClass, {
-          'active-menuitem': active && !item.to
+          'active-menuitem': active && !item.to,
         });
 
         return (
@@ -119,15 +130,15 @@ class AppSubmenu extends Component {
   }
 }
 
-export class AppMenu extends Component {
+type MenuProps = {
+  model: any,
+  onMenuItemClick?: Function,
+};
+
+export default class AppMenu extends Component<MenuProps> {
   static defaultProps = {
     model: null,
-    onMenuItemClick: null
-  };
-
-  static propTypes = {
-    model: PropTypes.array,
-    onMenuItemClick: PropTypes.func
+    onMenuItemClick: null,
   };
 
   render() {

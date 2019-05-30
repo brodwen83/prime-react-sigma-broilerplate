@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { CarService } from '../service/CarService';
+import { CarService } from '../../service/CarService';
 import { OverlayPanel } from 'primereact/overlaypanel';
 import { Dialog } from 'primereact/dialog';
 import { Lightbox } from 'primereact/lightbox';
@@ -18,24 +18,24 @@ export class OverlaysDemo extends Component {
         {
           source: 'assets/demo/images/sopranos/sopranos1.jpg',
           thumbnail: 'assets/demo/images/sopranos/sopranos1_small.jpg',
-          title: 'Sopranos 1'
+          title: 'Sopranos 1',
         },
         {
           source: 'assets/demo/images/sopranos/sopranos2.jpg',
           thumbnail: 'assets/demo/images/sopranos/sopranos2_small.jpg',
-          title: 'Sopranos 2'
+          title: 'Sopranos 2',
         },
         {
           source: 'assets/demo/images/sopranos/sopranos3.jpg',
           thumbnail: 'assets/demo/images/sopranos/sopranos3_small.jpg',
-          title: 'Sopranos 3'
+          title: 'Sopranos 3',
         },
         {
           source: 'assets/demo/images/sopranos/sopranos4.jpg',
           thumbnail: 'assets/demo/images/sopranos/sopranos4_small.jpg',
-          title: 'Sopranos 4'
-        }
-      ]
+          title: 'Sopranos 4',
+        },
+      ],
     };
 
     this.carService = new CarService();
