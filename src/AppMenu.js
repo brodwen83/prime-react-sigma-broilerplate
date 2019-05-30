@@ -29,12 +29,12 @@ class AppSubmenu extends Component<Props, State> {
     root: PropTypes.bool,
   };
 
-  constructor(props) {
+  constructor (props) {
     super(props);
     this.state = { activeIndex: null };
   }
 
-  onMenuItemClick(event, item, index) {
+  onMenuItemClick (event, item, index) {
     //avoid processing disabled items
     if (item.disabled) {
       event.preventDefault();
@@ -57,7 +57,7 @@ class AppSubmenu extends Component<Props, State> {
     }
   }
 
-  renderLinkContent(item) {
+  renderLinkContent (item) {
     let submenuIcon = item.items && (
       <i className="pi pi-fw pi-angle-down menuitem-toggle-icon" />
     );
@@ -75,7 +75,7 @@ class AppSubmenu extends Component<Props, State> {
     );
   }
 
-  renderLink(item, i) {
+  renderLink (item, i) {
     let content = this.renderLinkContent(item);
 
     if (item.to) {
@@ -103,7 +103,7 @@ class AppSubmenu extends Component<Props, State> {
     }
   }
 
-  render() {
+  render () {
     let items =
       this.props.items &&
       this.props.items.map((item, i) => {
@@ -141,7 +141,7 @@ export default class AppMenu extends Component<MenuProps> {
     onMenuItemClick: null,
   };
 
-  render() {
+  render () {
     return (
       <div className="menu">
         <AppSubmenu

@@ -36,7 +36,7 @@ type State = {
 };
 
 class App extends Component<*, State> {
-  constructor() {
+  constructor () {
     super();
     this.state = {
       layoutMode: 'static',
@@ -62,7 +62,7 @@ class App extends Component<*, State> {
   menu: any;
   sidebar: any;
 
-  onWrapperClick() {
+  onWrapperClick () {
     if (!this.menuClick) {
       this.setState({
         overlayMenuActive: false,
@@ -73,7 +73,7 @@ class App extends Component<*, State> {
     this.menuClick = false;
   }
 
-  onToggleMenu(event: Object) {
+  onToggleMenu (event: Object) {
     this.menuClick = true;
 
     if (this.isDesktop()) {
@@ -96,14 +96,14 @@ class App extends Component<*, State> {
     event.preventDefault();
   }
 
-  onSidebarClick() {
+  onSidebarClick () {
     this.menuClick = true;
     setTimeout(() => {
       this.layoutMenuScroller.moveBar();
     }, 500);
   }
 
-  onMenuItemClick(event: Object) {
+  onMenuItemClick (event: Object) {
     if (!event.item.items) {
       this.setState({
         overlayMenuActive: false,
@@ -112,7 +112,7 @@ class App extends Component<*, State> {
     }
   }
 
-  createMenu() {
+  createMenu () {
     this.menu = [
       {
         label: 'Dashboard',
@@ -245,12 +245,12 @@ class App extends Component<*, State> {
     ];
   }
 
-  addClass(element: Element, className: any) {
+  addClass (element: Element, className: any) {
     if (element.classList) element.classList.add(className);
     else element.className += ' ' + className;
   }
 
-  removeClass(element: Element, className: any) {
+  removeClass (element: Element, className: any) {
     if (element.classList) element.classList.remove(className);
     else
       element.className = element.className.replace(
@@ -262,11 +262,11 @@ class App extends Component<*, State> {
       );
   }
 
-  isDesktop() {
+  isDesktop () {
     return window.innerWidth > 1024;
   }
 
-  componentDidUpdate() {
+  componentDidUpdate () {
     const docBody = document.body;
 
     if (this.state.mobileMenuActive) {
@@ -276,7 +276,7 @@ class App extends Component<*, State> {
     }
   }
 
-  render() {
+  render () {
     let logo =
       this.state.layoutColorMode === 'dark'
         ? 'assets/layout/images/logo-white.svg'
