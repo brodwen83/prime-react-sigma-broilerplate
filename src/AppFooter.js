@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function AppFooter() {
+export default function AppFooter () {
   return (
     <div className="layout-footer">
       <span className="footer-text" style={{ marginRight: '5px' }}>

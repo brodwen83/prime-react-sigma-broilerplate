@@ -6,7 +6,7 @@ type State = {
 };
 
 export default class AppInlineProfile extends Component<*, State> {
-  constructor() {
+  constructor () {
     super();
     this.state = {
       expanded: false,
@@ -15,12 +15,12 @@ export default class AppInlineProfile extends Component<*, State> {
   }
   onClick: () => void;
 
-  onClick(event: Object) {
+  onClick (event: Object) {
     this.setState({ expanded: !this.state.expanded });
     event.preventDefault();
   }
 
-  render() {
+  render () {
     return (
       <div className="profile">
         <div>

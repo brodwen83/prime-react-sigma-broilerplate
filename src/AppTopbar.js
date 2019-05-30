@@ -15,7 +15,7 @@ export default class AppTopbar extends Component<Props> {
     onToggleMenu: PropTypes.func.isRequired,
   };
 
-  render() {
+  render () {
     return (
       <div className="layout-topbar clearfix">
         <button
