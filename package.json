@@ -54,6 +54,7 @@
   ],
   "lint-staged": {
     "src/**/*.{js,jsx,json,css}": [
+      "flow focus-check",
       "eslint --fix",
       "git add"
     ]
