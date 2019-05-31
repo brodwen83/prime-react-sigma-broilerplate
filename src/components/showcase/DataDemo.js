@@ -16,10 +16,38 @@ import { Button } from 'primereact/button';
 import { Dropdown } from 'primereact/dropdown';
 import { DataView, DataViewLayoutOptions } from 'primereact/dataview';
 
-export class DataDemo extends Component {
-  constructor() {
+type State = {
+  sortOrder: number,
+  sortField: Object,
+  sortKey: string,
+  dataTableSelection: any,
+
+  dataTableValue: Array<any>,
+  dataViewValue: Array<any>,
+  picklistSourceCars: Array<any>,
+  picklistTargetCars: Array<any>,
+  orderlistCars: Array<any>,
+  treeData1: Array<any>,
+  treeData2: Array<any>,
+  selectedFile: null,
+  selectedFiles: null,
+  documents: Array<any>,
+  documentsSelection: null,
+  fullCalendarEvents: Array<any>,
+  layout: string,
+  sortOptions: Array<Object>,
+  organizationChartValue: Array<Object>,
+};
+
+export default class DataDemo extends Component<*, State> {
+  constructor () {
     super();
     this.state = {
+      sortOrder: -1,
+      sortField: null,
+      sortKey: '',
+      dataTableSelection: null,
+
       dataTableValue: [],
       dataViewValue: [],
       picklistSourceCars: [],
@@ -82,7 +110,17 @@ export class DataDemo extends Component {
     this.onSortChange = this.onSortChange.bind(this);
   }
 
-  componentDidMount() {
+  dv: any;
+  carService: any;
+  nodeService: any;
+  eventService: any;
+
+  dataViewItemTemplate: () => void;
+  pickListTemplate: () => void;
+  orderListTemplate: () => void;
+  onSortChange: () => void;
+
+  componentDidMount () {
     this.carService
       .getCarsMedium()
       .then(data => this.setState({ dataTableValue: data }));
@@ -109,7 +147,7 @@ export class DataDemo extends Component {
       .then(events => this.setState({ fullCalendarEvents: events }));
   }
 
-  pickListTemplate(car) {
+  pickListTemplate (car: any) {
     if (!car) {
       return;
     }
@@ -134,7 +172,7 @@ export class DataDemo extends Component {
     );
   }
 
-  orderListTemplate(car) {
+  orderListTemplate (car: any) {
     if (!car) {
       return;
     }
@@ -157,7 +195,7 @@ export class DataDemo extends Component {
     );
   }
 
-  dataViewItemTemplate(car, layout) {
+  dataViewItemTemplate (car: any, layout: string) {
     if (!car) {
       return;
     }
@@ -217,7 +255,7 @@ export class DataDemo extends Component {
     }
   }
 
-  onSortChange(event) {
+  onSortChange (event: Object) {
     let value = event.value;
 
     if (value.indexOf('!') === 0)
@@ -229,7 +267,7 @@ export class DataDemo extends Component {
     else this.setState({ sortOrder: 1, sortField: value, sortKey: value });
   }
 
-  render() {
+  render () {
     let fullcalendarOptions = {
       defaultDate: '2016-01-12',
       header: {

@@ -33,10 +33,45 @@ import { ProgressBar } from 'primereact/progressbar';
 import { Dialog } from 'primereact/dialog';
 import { Column } from 'primereact/column';
 
-export class SampleDemo extends Component {
-  constructor() {
+type State = {
+  dialogValue: boolean,
+  date: any,
+  country: any,
+  filteredCountries: any,
+  countriesData: Array<any>,
+  dropdownCity: any,
+  selectedNodeKey: any,
+  cities: Array<Object>,
+  spinnerValue: any,
+  checkboxValue: Array<any>,
+  radioValue: any,
+  sliderValue: any,
+  toggleButtonValue: any,
+  dialogVisible: boolean,
+  dataTableValue: Array<any>,
+  dataTableSelection: any,
+  dataViewValue: Array<any>,
+  treeData: Array<any>,
+  picklistSourceCars: Array<any>,
+  picklistTargetCars: Array<any>,
+  orderlistCars: Array<any>,
+  layout: string,
+  selectedCars: Array<any>,
+  carOptions: Array<Object>,
+  listBoxCity: any,
+  listBoxCities: Array<Object>,
+  selectedType: any,
+  types: Array<Object>,
+  splitButtonItems: Array<Object>,
+  menuItems: Array<Object>,
+  panelMenuItems: Array<Object>,
+};
+
+export default class SampleDemo extends Component<*, State> {
+  constructor () {
     super();
     this.state = {
+      dialogValue: false,
       date: null,
       country: null,
       filteredCountries: null,
@@ -260,7 +295,16 @@ export class SampleDemo extends Component {
     this.orderListTemplate = this.orderListTemplate.bind(this);
   }
 
-  componentDidMount() {
+  countryService: any;
+  carService: any;
+  nodeService: any;
+  dv: any;
+  onCheckboxChange: () => void;
+  filterCountry: () => void;
+  dataViewItemTemplate: () => void;
+  orderListTemplate: () => void;
+
+  componentDidMount () {
     this.setState({ countriesData: this.countryService.getCountries(this) });
     this.carService
       .getCarsSmall()
@@ -279,7 +323,7 @@ export class SampleDemo extends Component {
       .then(data => this.setState({ orderlistCars: data }));
   }
 
-  filterCountry(event) {
+  filterCountry (event: Object) {
     const results = this.state.countriesData.filter(country => {
       return country.name.toLowerCase().startsWith(event.query.toLowerCase());
     });
@@ -287,7 +331,7 @@ export class SampleDemo extends Component {
     this.setState({ filteredCountries: results });
   }
 
-  onCheckboxChange(event) {
+  onCheckboxChange (event: Object) {
     let selected = [...this.state.checkboxValue];
 
     if (event.checked) selected.push(event.value);
@@ -296,7 +340,7 @@ export class SampleDemo extends Component {
     this.setState({ checkboxValue: selected });
   }
 
-  orderListTemplate(car) {
+  orderListTemplate (car: any) {
     if (!car) {
       return;
     }
@@ -319,7 +363,7 @@ export class SampleDemo extends Component {
     );
   }
 
-  dataViewItemTemplate(car, layout) {
+  dataViewItemTemplate (car: any, layout: string) {
     if (!car) {
       return;
     }
@@ -379,7 +423,7 @@ export class SampleDemo extends Component {
     }
   }
 
-  render() {
+  render () {
     const dialogFooter = (
       <Button
         label="Login"

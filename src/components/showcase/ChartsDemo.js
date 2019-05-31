@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
 import { Chart } from 'primereact/chart';
 
-export class ChartsDemo extends Component {
-  constructor() {
+type State = {
+  lineData: Object,
+  barData: Object,
+  pieData: Object,
+  polarData: Object,
+  radarData: Object,
+};
+export default class ChartsDemo extends Component<*, State> {
+  constructor () {
     super();
     this.state = {
       lineData: {
@@ -117,7 +124,7 @@ export class ChartsDemo extends Component {
     };
   }
 
-  render() {
+  render () {
     return (
       <div className="p-grid p-fluid">
         <div className="p-col-12 p-lg-6">

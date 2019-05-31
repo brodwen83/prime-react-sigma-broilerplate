@@ -5,8 +5,8 @@ import { Button } from 'primereact/button';
 import { Message } from 'primereact/message';
 import { InputText } from 'primereact/inputtext';
 
-export class MessagesDemo extends Component {
-  constructor() {
+export default class MessagesDemo extends Component<*, *> {
+  constructor () {
     super();
 
     this.showInfo = this.showInfo.bind(this);
@@ -15,7 +15,15 @@ export class MessagesDemo extends Component {
     this.showError = this.showError.bind(this);
   }
 
-  showSuccess() {
+  showInfo: () => void;
+  showSuccess: () => void;
+  showWarn: () => void;
+  showError: () => void;
+
+  growl: any;
+  messages: any;
+
+  showSuccess () {
     let msg = {
       severity: 'success',
       summary: 'Success Message',
@@ -25,7 +33,7 @@ export class MessagesDemo extends Component {
     this.messages.show(msg);
   }
 
-  showInfo() {
+  showInfo () {
     let msg = {
       severity: 'info',
       summary: 'Info Message',
@@ -35,7 +43,7 @@ export class MessagesDemo extends Component {
     this.messages.show(msg);
   }
 
-  showWarn() {
+  showWarn () {
     let msg = {
       severity: 'warn',
       summary: 'Warn Message',
@@ -45,7 +53,7 @@ export class MessagesDemo extends Component {
     this.messages.show(msg);
   }
 
-  showError() {
+  showError () {
     let msg = {
       severity: 'error',
       summary: 'Error Message',
@@ -55,7 +63,7 @@ export class MessagesDemo extends Component {
     this.messages.show(msg);
   }
 
-  render() {
+  render () {
     return (
       <div className="p-grid">
         <div className="p-col-12">

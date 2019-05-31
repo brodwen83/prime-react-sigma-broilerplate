@@ -8,8 +8,14 @@ import { InputText } from 'primereact/inputtext';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 
-export class OverlaysDemo extends Component {
-  constructor() {
+type State = {
+  dataTableValue: Array<any>,
+  display: boolean,
+  images: Array<Object>,
+};
+
+export default class OverlaysDemo extends Component<*, State> {
+  constructor () {
     super();
     this.state = {
       dataTableValue: [],
@@ -41,13 +47,17 @@ export class OverlaysDemo extends Component {
     this.carService = new CarService();
   }
 
-  componentDidMount() {
+  carService: any;
+  overlayPanel1: any;
+  overlayPanel2: any;
+
+  componentDidMount () {
     this.carService
       .getCarsSmall()
       .then(data => this.setState({ dataTableValue: data.splice(0, 5) }));
   }
 
-  render() {
+  render () {
     const dialogFooter = (
       <div>
         <Button

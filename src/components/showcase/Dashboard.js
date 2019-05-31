@@ -10,10 +10,19 @@ import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
 import { FullCalendar } from 'primereact/fullcalendar';
 
-export class Dashboard extends Component {
-  constructor() {
+type State = {
+  tasks: Array<any>,
+  city: any,
+  selectedCar: any,
+  lineData: Object,
+  cars: any,
+};
+
+export default class Dashboard extends Component<*, State> {
+  constructor () {
     super();
     this.state = {
+      cars: null,
       tasks: [],
       city: null,
       selectedCar: null,
@@ -49,7 +58,11 @@ export class Dashboard extends Component {
     this.carservice = new CarService();
   }
 
-  onTaskChange(e) {
+  onTaskChange: () => void;
+  onCityChange: () => void;
+  carservice: any;
+
+  onTaskChange (e: Object) {
     let selectedTasks = [...this.state.tasks];
     if (e.checked) selectedTasks.push(e.value);
     else selectedTasks.splice(selectedTasks.indexOf(e.value), 1);
@@ -57,15 +70,15 @@ export class Dashboard extends Component {
     this.setState({ tasks: selectedTasks });
   }
 
-  onCityChange(e) {
+  onCityChange (e: Object) {
     this.setState({ city: e.value });
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.carservice.getCarsSmall().then(data => this.setState({ cars: data }));
   }
 
-  render() {
+  render () {
     let cities = [
       { label: 'New York', value: { id: 1, name: 'New York', code: 'NY' } },
       { label: 'Rome', value: { id: 2, name: 'Rome', code: 'RM' } },

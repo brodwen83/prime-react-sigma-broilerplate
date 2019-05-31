@@ -11,10 +11,22 @@ import { PanelMenu } from 'primereact/panelmenu';
 import { TabMenu } from 'primereact/tabmenu';
 import { MegaMenu } from 'primereact/megamenu';
 
-export class MenusDemo extends Component {
-  constructor() {
+type State = {
+  items: any,
+  breadcrumdItems: Array<Object>,
+  home: Object,
+  stepsItems: Array<Object>,
+  tieredItems: Array<Object>,
+  panelMenuItems: Array<Object>,
+  tabMenuItems: Array<Object>,
+  megaMenuItems: Array<Object>,
+};
+
+export default class MenusDemo extends Component<*, State> {
+  constructor () {
     super();
     this.state = {
+      items: null,
       breadcrumdItems: [
         { label: 'Categories' },
         { label: 'Sports' },
@@ -442,7 +454,9 @@ export class MenusDemo extends Component {
     };
   }
 
-  render() {
+  menu: any;
+
+  render () {
     return (
       <div className="p-grid p-fluid">
         <div className="p-col-12">

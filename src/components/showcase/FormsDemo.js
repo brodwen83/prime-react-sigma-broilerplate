@@ -22,10 +22,49 @@ import { SelectButton } from 'primereact/selectbutton';
 import { Button } from 'primereact/button';
 import { SplitButton } from 'primereact/splitbutton';
 
-export class FormsDemo extends Component {
-  constructor() {
+type State = {
+  toggleButtonValue: boolean,
+  brand: any,
+  country: any,
+  filteredCountries: any,
+  filteredBrands: any,
+  countriesData: Array<any>,
+  cars: Array<any>,
+  selectedType: null,
+  chipsValue: Array<any>,
+  date1: null,
+  date2: null,
+  date3: null,
+  date4: null,
+  date5: null,
+  date6: null,
+  date7: null,
+  checkboxValue: Array<any>,
+  radioValue: null,
+  inputSwitchValue: false,
+  dropdownCity: null,
+  spinnerValue: null,
+  sliderValue: Array<number>,
+  listBoxCity: null,
+  ratingValue: null,
+  colorPickerValue: null,
+  inputGroupValue: null,
+  carOptions: Array<Object>,
+  cities: Array<Object>,
+  listBoxCities: Array<Object>,
+  types: Array<Object>,
+  splitButtonItems: Array<Object>,
+};
+
+export default class FormsDemo extends Component<*, State> {
+  constructor () {
     super();
     this.state = {
+      toggleButtonValue: false,
+      brand: null,
+      country: null,
+      filteredCountries: null,
+      filteredBrands: null,
       countriesData: [],
       cars: [],
       selectedType: null,
@@ -96,7 +135,15 @@ export class FormsDemo extends Component {
     this.autoCompleteItemTemplate = this.autoCompleteItemTemplate.bind(this);
   }
 
-  componentDidMount() {
+  countryService: any;
+  onCheckboxChange: () => void;
+  filterCountry: () => void;
+  filterBrands: () => void;
+  autoCompleteItemTemplate: () => void;
+
+  brands: Array<string>;
+
+  componentDidMount () {
     this.setState({ countriesData: this.countryService.getCountries(this) });
     this.brands = [
       'Audi',
@@ -111,14 +158,14 @@ export class FormsDemo extends Component {
     ];
   }
 
-  filterCountry(event) {
+  filterCountry (event: Object) {
     let results = this.state.countriesData.filter(country => {
       return country.name.toLowerCase().startsWith(event.query.toLowerCase());
     });
     this.setState({ filteredCountries: results });
   }
 
-  filterBrands(event) {
+  filterBrands (event: Object) {
     setTimeout(() => {
       let results;
 
@@ -134,7 +181,7 @@ export class FormsDemo extends Component {
     }, 250);
   }
 
-  autoCompleteItemTemplate(brand) {
+  autoCompleteItemTemplate (brand: any) {
     if (!brand) {
       return;
     }
@@ -159,7 +206,7 @@ export class FormsDemo extends Component {
     );
   }
 
-  onCheckboxChange(event) {
+  onCheckboxChange (event: Object) {
     let selected = [...this.state.checkboxValue];
     if (event.checked) selected.push(event.value);
     else selected.splice(selected.indexOf(event.value), 1);
@@ -167,7 +214,7 @@ export class FormsDemo extends Component {
     this.setState({ checkboxValue: selected });
   }
 
-  render() {
+  render () {
     return (
       <div className="p-grid p-fluid">
         <div className="p-col-12 p-lg-6">

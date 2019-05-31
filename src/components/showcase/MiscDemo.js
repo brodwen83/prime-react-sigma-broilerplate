@@ -3,8 +3,12 @@ import { FileUpload } from 'primereact/fileupload';
 import { Growl } from 'primereact/growl';
 import { ProgressBar } from 'primereact/progressbar';
 
-export class MiscDemo extends Component {
-  constructor() {
+type State = {
+  value: number,
+};
+
+export default class MiscDemo extends Component<*, State> {
+  constructor () {
     super();
     this.state = {
       value: 0,
@@ -13,7 +17,11 @@ export class MiscDemo extends Component {
     this.onUpload = this.onUpload.bind(this);
   }
 
-  onUpload() {
+  onUpload: () => void;
+  interval: Function;
+  growl: any;
+
+  onUpload () {
     this.growl.show({
       severity: 'info',
       summary: 'Success',
@@ -21,7 +29,7 @@ export class MiscDemo extends Component {
     });
   }
 
-  componentDidMount() {
+  componentDidMount () {
     this.interval = setInterval(() => {
       let val = this.state.value;
       val += Math.floor(Math.random() * 10) + 1;
@@ -33,11 +41,11 @@ export class MiscDemo extends Component {
     }, 2000);
   }
 
-  componentWillUnmount() {
+  componentWillUnmount () {
     clearInterval(this.interval);
   }
 
-  render() {
+  render () {
     return (
       <div className="p-grid">
         <div className="p-col-12">

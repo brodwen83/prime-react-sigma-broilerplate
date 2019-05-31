@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import './Documentation.css';
 
-export class Documentation extends Component {
-  constructor() {
+export default class Documentation extends Component<*, *> {
+  constructor () {
     super();
     this.state = {};
   }
 
-  render() {
+  render () {
     return (
       <div className="p-grid">
         <div className="p-col-12">
